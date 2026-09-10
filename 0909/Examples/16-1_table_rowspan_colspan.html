@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rowspan, colspan으로 셀 합치기</title>
+</head>
+<body>
+    <h3>rowspan, colspan으로 셀 합치기</h3>
+    <hr>
+    <table border="1">
+        <caption>2학기 시간표</caption>
+        <thead>
+            <tr>
+                <th>교시</th><th>월</th><th>화</th><th>수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td colspan="2">웹 프로그래밍</td>
+                <td>수학</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td rowspan="2">물리학</td>
+                <td>화학</td>
+                <td rowspan="2">체육</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>영어</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+    colspan : 가로로 여러 열을 하나의 셀로 합침<br>
+    rowspan : 세로로 여러 행을 하나의 셀로 합침
+    </p>
+</body>
+</html>
