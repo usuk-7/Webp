@@ -1,0 +1,60 @@
+body {
+    background-color: aliceblue;
+}
+
+header h2 {
+    text-align: center;
+    color: brown;
+    font-size: 2em;
+}
+
+header p {
+    font-family: "휴먼편지체", cursive;
+    font-size: 1em;
+    text-indent: 1em;
+}
+
+section {
+    background-color: mistyrose;
+    padding-left: 1em;
+}
+
+section label {
+    margin-right: 10px;
+    font-family: "휴먼편지체", cursive;
+}
+
+.option-label {
+    font-family: "휴먼편지체", cursive;
+}
+
+.field-label {
+    font-weight: bold;
+    color: darkblue;
+    margin-right: 8px;
+}
+
+.comment-row {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.comment-row .field-label {
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+footer {
+    background-color: orange;
+    border-radius: 20px;
+    margin-top: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    font-family: "휴먼편지체", cursive;
+    text-indent: 1em;
+    margin: 0;
+}
