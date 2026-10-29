@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갬블링 게임</title>
+    <style>
+        div {
+            display: inline-block;
+            background-color: linen;
+            border: 2px solid rgb(250, 219, 187);
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        span {
+            color: navy;
+            font: italic bold 50px Consolas;
+            margin: 5px;
+        }
+        #result {
+            color: navy;
+            font: italic 16px Consolas;
+        }
+    </style>
+    <script>
+        let clicked = [false, false, false];
+        function rand(obj, idx) {
+            if (clicked[idx]) return;   // 이미 클릭한 숫자는 무시
+            obj.innerHTML = Math.floor(Math.random() * 3);
+            clicked[idx] = true;
+            if (clicked[0] && clicked[1] && clicked[2]) {
+                let span = document.getElementsByTagName("span");
+                let res = document.getElementById("result");
+                if (span[0].innerHTML == span[1].innerHTML && span[1].innerHTML == span[2].innerHTML)
+                    res.innerHTML = "Success(click here to do again)";
+                else
+                    res.innerHTML = "fail(click here to do again)";
+                res.onclick = restart;
+            }
+        }
+        function restart() {
+            let span = document.getElementsByTagName("span");
+            for (let i = 0; i < span.length; i++) {
+                span[i].innerHTML = "0";
+                clicked[i] = false;
+            }
+            let res = document.getElementById("result");
+            res.innerHTML = "";
+            res.onclick = null;
+        }
+    </script>
+</head>
+<body>
+    <h3>갬블링 게임</h3>
+    <p>
+        각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+    </p>
+    <hr>
+    <div>
+        <span onclick="rand(this, 0)">0</span>
+        <span onclick="rand(this, 1)">0</span>
+        <span onclick="rand(this, 2)">0</span>
+    </div>
+    <p id="result">
+
+    </p>
+</body>
+</html>
