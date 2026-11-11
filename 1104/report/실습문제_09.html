@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>onmouseover과 onmouseout</title>
+<style>
+    #desc {
+        position : absolute;
+        visibility : hidden;
+        width : 200px;
+        padding : 5px;
+        background-color : lightblue;
+        border : 1px solid skyblue;
+    }
+</style>
+<script>
+    function show(e, text) {
+        let desc = document.getElementById("desc");
+        desc.innerHTML = text;
+        desc.style.left = e.pageX + "px";
+        desc.style.top = e.pageY + "px";
+        desc.style.visibility = "visible";
+    }
+    function hide() {
+        document.getElementById("desc").style.visibility = "hidden";
+    }
+</script>
+</head>
+<body>
+<h3>아이템에 마우스를 올리면 설명 출력</h3>
+<hr>
+<p>여름 방학 때 하고 싶은 것들</p>
+<ul>
+    <li onmouseover="show(event, '빨간자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다')"
+        onmouseout="hide()">자전거로 대한민국 일주</li>
+    <li onmouseover="show(event, '소설, 과학, 역사 등 하루 한 권씩 다양한 분야의 책을 읽는다')"
+        onmouseout="hide()">책 100권 읽기</li>
+    <li onmouseover="show(event, '수영, 사이클, 달리기를 매일 번갈아 연습한다')"
+        onmouseout="hide()">철인 3종 경기 준비</li>
+    <li onmouseover="show(event, '이벤트, DOM, 객체까지 교재의 모든 예제를 직접 작성해 본다')"
+        onmouseout="hide()">자바스크립트 정복</li>
+</ul>
+<div id="desc"></div>
+</body>
+</html>

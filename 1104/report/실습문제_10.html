@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>계산기 만들기</title>
+<style>
+    #exp { width : 300px; }
+    td { padding : 3px 15px; }
+    input[type=button] { width : 60px; }
+</style>
+<script>
+    function press(btn) {
+        let exp = document.getElementById("exp");
+        let v = btn.value;
+        if (v == "NONE") return;
+        if (v == "=") {
+            exp.value = eval(exp.value);
+        }
+        else if (v == "BACK") {
+            exp.value = exp.value.slice(0, -1);
+            if (exp.value == "") exp.value = "0";
+        }
+        else if (v == "CE" || v == "C") {
+            exp.value = "0";
+        }
+        else {
+            if (exp.value == "0" && v >= "0" && v <= "9")
+                exp.value = v;
+            else
+                exp.value += v;
+        }
+    }
+</script>
+</head>
+<body>
+<h3>계산기 만들기</h3>
+<hr>
+<input type="text" id="exp" value="0">
+<table>
+    <tr><td><input type="button" value="BACK" onclick="press(this)"></td>
+        <td><input type="button" value="CE" onclick="press(this)"></td>
+        <td><input type="button" value="C" onclick="press(this)"></td>
+        <td><input type="button" value="=" onclick="press(this)"></td></tr>
+    <tr><td><input type="button" value="7" onclick="press(this)"></td>
+        <td><input type="button" value="8" onclick="press(this)"></td>
+        <td><input type="button" value="9" onclick="press(this)"></td>
+        <td><input type="button" value="/" onclick="press(this)"></td></tr>
+    <tr><td><input type="button" value="4" onclick="press(this)"></td>
+        <td><input type="button" value="5" onclick="press(this)"></td>
+        <td><input type="button" value="6" onclick="press(this)"></td>
+        <td><input type="button" value="*" onclick="press(this)"></td></tr>
+    <tr><td><input type="button" value="1" onclick="press(this)"></td>
+        <td><input type="button" value="2" onclick="press(this)"></td>
+        <td><input type="button" value="3" onclick="press(this)"></td>
+        <td><input type="button" value="-" onclick="press(this)"></td></tr>
+    <tr><td><input type="button" value="0" onclick="press(this)"></td>
+        <td><input type="button" value="+" onclick="press(this)"></td>
+        <td><input type="button" value="NONE" onclick="press(this)"></td>
+        <td><input type="button" value="NONE" onclick="press(this)"></td></tr>
+</table>
+</body>
+</html>
